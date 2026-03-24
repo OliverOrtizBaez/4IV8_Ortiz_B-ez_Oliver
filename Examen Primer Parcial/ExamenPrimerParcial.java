@@ -25,7 +25,6 @@ public class ExamenPrimerParcial {
             if (opcion >= 1 && opcion <= 3) {
                 double precioPorMetro = (opcion == 1) ? 13.45 : (opcion == 2) ? 43.95 : 39.24;
 
-                // Validación del nombre (Mínimo 10 caracteres)
                 String nombre = "";
                 while (nombre.length() < 10) {
                     System.out.print("Ingrese nombre completo (mínimo 10 letras): ");
@@ -35,29 +34,23 @@ public class ExamenPrimerParcial {
                     }
                 }
 
-                // Validación de ANCHO (No permite letras)
                 double ancho = -1;
                 while (ancho <= 0) {
                     System.out.print("Ancho del piso (metros): ");
                     try {
                         ancho = Double.parseDouble(scanner.nextLine());
-                        if (ancho <= 0)
-                            System.out.println("[ERROR]: La medida debe ser mayor a 0.");
                     } catch (NumberFormatException e) {
-                        System.out.println("[ERROR]: Solo se permiten números para las medidas.");
+                        System.out.println("[ERROR]: Solo se permiten números.");
                     }
                 }
 
-                // Validación de LARGO (No permite letras)
                 double largo = -1;
                 while (largo <= 0) {
                     System.out.print("Largo del piso (metros): ");
                     try {
                         largo = Double.parseDouble(scanner.nextLine());
-                        if (largo <= 0)
-                            System.out.println("[ERROR]: La medida debe ser mayor a 0.");
                     } catch (NumberFormatException e) {
-                        System.out.println("[ERROR]: Solo se permiten números para las medidas.");
+                        System.out.println("[ERROR]: Solo se permiten números.");
                     }
                 }
 
@@ -70,20 +63,26 @@ public class ExamenPrimerParcial {
                 System.out.println("Cliente: " + nombre);
                 System.out.printf("Área: %.2f m2 | Costo con IVA (16%%): $%.2f\n", area, totalCotizacion);
 
-                // Validación de SI/NO
-                System.out.print("\n¿Confirma la compra para aplicar descuento del 7.25%? (SI/NO): ");
-                String confirma = scanner.nextLine().trim().toUpperCase();
+                // --- ESTA ES LA PARTE QUE CORREGIMOS ---
+                String confirma = "";
+                while (!confirma.equals("SI") && !confirma.equals("S") && !confirma.equals("NO")
+                        && !confirma.equals("N")) {
+                    System.out.print("\n¿Confirma la compra para aplicar descuento del 7.25%? (SI/NO): ");
+                    confirma = scanner.nextLine().trim().toUpperCase();
 
-                if (confirma.equals("SI") || confirma.equals("S")) {
-                    double descuento = subtotal * 0.0725;
-                    double subtotalConDesc = subtotal - descuento;
-                    double totalFinal = subtotalConDesc + (subtotalConDesc * 0.16);
+                    if (confirma.equals("SI") || confirma.equals("S")) {
+                        double descuento = subtotal * 0.0725;
+                        double subtotalConDesc = subtotal - descuento;
+                        double totalFinal = subtotalConDesc + (subtotalConDesc * 0.16);
 
-                    System.out.println("\n--- TICKET DE VENTA ---");
-                    System.out.printf("Descuento aplicado: -$%.2f\n", descuento);
-                    System.out.printf("TOTAL FINAL A PAGAR: $%.2f\n", totalFinal);
-                } else {
-                    System.out.println("Cotización guardada sin descuento.");
+                        System.out.println("\n--- TICKET DE VENTA ---");
+                        System.out.printf("Descuento aplicado: -$%.2f\n", descuento);
+                        System.out.printf("TOTAL FINAL A PAGAR: $%.2f\n", totalFinal);
+                    } else if (confirma.equals("NO") || confirma.equals("N")) {
+                        System.out.println("Cotización guardada sin aplicar el descuento.");
+                    } else {
+                        System.out.println("[ERROR]: Responda únicamente SI o NO.");
+                    }
                 }
 
             } else if (opcion != 4) {
