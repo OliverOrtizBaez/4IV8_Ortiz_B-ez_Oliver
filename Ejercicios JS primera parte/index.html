@@ -17,10 +17,10 @@
         <section id="ejercicio-1">
             <h2>1. Inversión de Capital</h2>
             <p>Calcula la ganancia tras un mes con un interés del 2% mensual.</p>
-            <form id="formulario">
+            <form id="formulario" name="formulario" onsubmit="return validar(this)">
                 <label for="capital">Capital a invertir:</label>
                 <input type="text" id="capital" name="capital" placeholder="Ej: 1000">
-                <button type="button" id="btn-inversion">Calcular Ganancia</button>
+                <button type="submit" id="btn-inversion">Calcular Ganancia</button>
             </form>
             <div id="resultado-1"></div>
         </section>
@@ -30,7 +30,7 @@
         <section id="ejercicio-2">
             <h2>2. Sueldo y Comisiones</h2>
             <p>Calcula el 10% extra por tres ventas realizadas.</p>
-            <form id="form-ventas">
+            <form id="form-ventas" name="form-ventas" onsubmit="return validarVentas(this)">
                 <label for="sueldo-base">Sueldo Base:</label>
                 <input type="text" id="sueldo-base" name="sueldo-base">
                 
@@ -43,7 +43,7 @@
                 <label for="venta3">Venta 3:</label>
                 <input type="text" id="venta3" name="venta3">
                 
-                <button type="button" id="btn-ventas">Calcular Total</button>
+                <button type="submit" id="btn-ventas">Calcular Total</button>
             </form>
             <div id="resultado-2"></div>
         </section>
@@ -53,34 +53,34 @@
         <section id="ejercicio-3">
             <h2>3. Descuento del 15%</h2>
             <p>Calcula el total a pagar aplicando un descuento del 15%.</p>
-            <form id="form-tienda">
+            <form id="form-tienda" name="form-tienda" onsubmit="return validarTienda(this)">
                 <label for="compra-total">Total de la compra:</label>
                 <input type="text" id="compra-total" name="compra-total">
-                <button type="button" id="btn-tienda">Aplicar Descuento</button>
+                <button type="submit" id="btn-tienda">Aplicar Descuento</button>
             </form>
             <div id="resultado-3"></div>
         </section>
 
         <hr>
 
-        <section id="ejercicio-4">
+<section id="ejercicio-4">
             <h2>4. Calificación Final Algoritmos</h2>
             <p>Basado en: 55% parciales, 30% examen final y 15% trabajo final.</p>
-            <form id="form-calificaciones">
+            <form id="form-calificaciones" name="form-calificaciones" onsubmit="return validarCalificaciones(this)">
                 <fieldset>
-                    <legend>Parciales (Promedio 55%)</legend>
-                    <input type="text" id="p1" placeholder="Parcial 1">
-                    <input type="text" id="p2" placeholder="Parcial 2">
-                    <input type="text" id="p3" placeholder="Parcial 3">
-                </fieldset>
+    <legend>Parciales (Promedio 55%)</legend>
+    <input type="text" id="p1" name="p1" placeholder="Parcial 1">
+    <input type="text" id="p2" name="p2" placeholder="Parcial 2">
+    <input type="text" id="p3" name="p3" placeholder="Parcial 3">
+</fieldset>
+
+<label for="examen-final">Examen Final (30%):</label>
+<input type="text" id="examen-final" name="examen-final">
+
+<label for="trabajo-final">Trabajo Final (15%):</label>
+<input type="text" id="trabajo-final" name="trabajo-final">
                 
-                <label for="examen-final">Examen Final (30%):</label>
-                <input type="text" id="examen-final">
-                
-                <label for="trabajo-final">Trabajo Final (15%):</label>
-                <input type="text" id="trabajo-final">
-                
-                <button type="button" id="btn-calificacion">Calcular Final</button>
+                <button type="submit" id="btn-calificacion">Calcular Final</button>
             </form>
             <div id="resultado-4"></div>
         </section>
@@ -89,14 +89,14 @@
 
         <section id="ejercicio-5">
             <h2>5. Porcentaje de Hombres y Mujeres</h2>
-            <form id="form-grupo">
+            <form id="form-grupo" name="form-grupo" onsubmit="return validarGrupo(this)">
                 <label for="num-hombres">Número de hombres:</label>
                 <input type="text" id="num-hombres">
                 
                 <label for="num-mujeres">Número de mujeres:</label>
                 <input type="text" id="num-mujeres">
                 
-                <button type="button" id="btn-grupo">Calcular Porcentajes</button>
+                <button type="submit" id="btn-grupo">Calcular Porcentajes</button>
             </form>
             <div id="resultado-5"></div>
         </section>
@@ -105,10 +105,10 @@
 
         <section id="ejercicio-6">
             <h2>6. Cálculo de Edad</h2>
-            <form id="form-edad">
+            <form id="form-edad" name="form-edad" onsubmit="return validarEdad(this)">
                 <label for="fecha-nacimiento">Fecha de Nacimiento:</label>
                 <input type="date" id="fecha-nacimiento">
-                <button type="button" id="btn-edad">Calcular Edad</button>
+                <button type="submit" id="btn-edad">Calcular Edad</button>
             </form>
             <div id="resultado-6"></div>
         </section>
@@ -117,6 +117,7 @@
     <footer>
         <p>Ortiz Báez Oliver- Nuevas Tecnologías</p>
     </footer>
-<script src="./JS/Logica.js"></script>
+
+    <script src="./JS/Logica.js"></script>
 </body>
 </html>
