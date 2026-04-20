@@ -1,21 +1,24 @@
 /* ──────────────────────────────────────────────
-   CSS — Formulario de 3 Componentes
-   Estética: editorial moderna, paleta oscura con
-   acento ámbar/dorado, tipografía expresiva.
+   CSS — Formulario Actualizado (Paleta Orgánica)
+   Estética: Editorial, minimalista.
+   Colores: Ámbar, Gris-Azulado, Pizarra, Arena.
 ────────────────────────────────────────────── */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500&display=swap');
 
 :root {
-    --bg:         #0e0e10;
-    --surface:    #18181c;
-    --border:     #2a2a30;
-    --accent:     #e8a838;
-    --accent-dim: #b07a1a;
-    --text:       #f0ede6;
-    --muted:      #7a7a85;
-    --danger:     #e85555;
-    --radius:     10px;
+    /* Implementación de la paleta de la imagen */
+    --bg:         #42535C; /* Pizarra oscuro (derecha arriba) */
+    --surface:    #f5f5f7; /* Off-white para contraste limpio */
+    --border:     #7E898F; /* Gris azulado medio (centro arriba) */
+    --accent:     #F5BE76; /* Ámbar/Dorado (izquierda arriba) */
+    --accent-dim: #B5A084; /* Arena/Tostado (derecha abajo) */
+    --secondary:  #84ACC2; /* Azul acero claro (izquierda abajo) */
+    
+    --text:       #1a1a1a;
+    --muted:      #5a6a72;
+    --danger:     #c04b4b;
+    --radius:     8px;
     --gap:        1.4rem;
 }
 
@@ -23,6 +26,8 @@
 
 body {
     background: var(--bg);
+    /* Degradado sutil usando los dos tonos oscuros de tu paleta */
+    background: linear-gradient(135deg, #42535C 0%, #34424a 100%);
     color: var(--text);
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
@@ -31,31 +36,29 @@ body {
     align-items: center;
     justify-content: center;
     padding: 2rem 1rem;
-    /* subtle grain */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
 }
 
 /* ── CARD ── */
 .card {
     background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 18px;
+    border: none;
+    border-radius: 12px;
     padding: 3rem 3.5rem;
     width: 100%;
     max-width: 580px;
-    box-shadow: 0 30px 80px rgba(0,0,0,.55);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.3);
     animation: fadeUp .55s ease both;
 }
 
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ── HEADER ── */
 .card-header {
     margin-bottom: 2.2rem;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 2px solid var(--accent); /* Línea de acento ámbar */
     padding-bottom: 1.6rem;
 }
 
@@ -63,32 +66,30 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: clamp(1.8rem, 5vw, 2.5rem);
     font-weight: 900;
+    color: var(--bg); /* Usamos el azul oscuro para el título */
     line-height: 1.1;
-    letter-spacing: -.02em;
 }
 
-.card-header h1 span { color: var(--accent); }
+.card-header h1 span { color: var(--secondary); }
 
 .card-header p {
     margin-top: .7rem;
-    font-size: .85rem;
+    font-size: .9rem;
     color: var(--muted);
-    line-height: 1.6;
 }
 
 /* ── DESCRIPCIÓN ── */
 .description {
-    background: rgba(232,168,56,.06);
-    border-left: 3px solid var(--accent-dim);
-    border-radius: 0 var(--radius) var(--radius) 0;
+    background: #f0f4f7;
+    border-left: 4px solid var(--secondary);
+    border-radius: 4px;
     padding: 1rem 1.2rem;
-    font-size: .82rem;
+    font-size: .85rem;
     color: var(--muted);
-    line-height: 1.7;
     margin-bottom: 2rem;
 }
 
-.description strong { color: var(--accent); font-weight: 500; }
+.description strong { color: var(--bg); font-weight: 500; }
 
 /* ── FORM GROUPS ── */
 .form-group {
@@ -99,101 +100,67 @@ body {
 }
 
 label {
-    font-size: .78rem;
+    font-size: .75rem;
     font-weight: 500;
-    letter-spacing: .08em;
+    letter-spacing: .05em;
     text-transform: uppercase;
-    color: var(--muted);
+    color: var(--bg);
 }
-
-label .required { color: var(--accent); margin-left: 2px; }
 
 /* ── INPUTS ── */
 input[type="text"],
 input[type="number"],
 input[type="email"],
 textarea {
-    background: var(--bg);
-    border: 1.5px solid var(--border);
+    background: #ffffff;
+    border: 1.5px solid #d1d9dd;
     border-radius: var(--radius);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: .95rem;
-    font-weight: 300;
-    padding: .78rem 1rem;
+    color: var(--bg);
+    padding: .75rem 1rem;
+    transition: all .2s;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--secondary);
     outline: none;
-    transition: border-color .2s, box-shadow .2s;
-    width: 100%;
-    -webkit-appearance: none;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(232,168,56,.15);
-}
-
-input::placeholder, textarea::placeholder {
-    color: var(--muted);
-    font-size: .88rem;
-}
-
-/* hide number arrows */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
-
-/* ── TEXTAREA ── */
-textarea {
-    resize: vertical;
-    min-height: 110px;
-    line-height: 1.6;
+    box-shadow: 0 0 0 3px rgba(132, 172, 194, 0.2);
 }
 
 /* ── BUTTONS ── */
 .btn-row {
     display: flex;
     gap: .8rem;
-    margin-top: .6rem;
-}
-
-button, input[type="submit"], input[type="reset"] {
-    cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
-    font-size: .88rem;
-    font-weight: 500;
-    border: none;
-    border-radius: var(--radius);
-    padding: .78rem 1.6rem;
-    transition: background .18s, transform .12s, box-shadow .18s;
+    margin-top: 1rem;
 }
 
 .btn-primary {
-    background: var(--accent);
-    color: #0e0e10;
+    background: var(--accent); /* Ámbar para el botón principal */
+    color: #424242;
+    font-weight: 600;
     flex: 1;
-    letter-spacing: .04em;
-    box-shadow: 0 4px 20px rgba(232,168,56,.25);
+    border: none;
+    padding: .85rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: transform .1s, filter .2s;
 }
 
 .btn-primary:hover {
-    background: #f0b840;
-    box-shadow: 0 6px 28px rgba(232,168,56,.38);
+    filter: brightness(1.05);
     transform: translateY(-1px);
 }
 
-.btn-primary:active { transform: translateY(0); }
-
 .btn-secondary {
-    background: transparent;
-    color: var(--muted);
-    border: 1.5px solid var(--border);
+    background: var(--accent-dim); /* Arena para el secundario */
+    color: white;
+    border: none;
+    padding: .85rem 1.5rem;
+    border-radius: var(--radius);
+    cursor: pointer;
 }
 
 .btn-secondary:hover {
-    border-color: var(--muted);
-    color: var(--text);
+    filter: brightness(0.9);
 }
 
 /* ── RESPONSIVE ── */
