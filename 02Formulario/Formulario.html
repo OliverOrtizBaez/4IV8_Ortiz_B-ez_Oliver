@@ -1,35 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo de formulario y su validación</title>
-    <script src="./JS/validarformulario.js"></script>
+    <title>Formulario de 3 Componentes</title>
+    <link rel="stylesheet" href="./Styles/estilos.css">
+    <script src="./JS/validarformulario.js" defer></script>
 </head>
 <body>
-    <div class="container">
-        <div class="form-container">
-            <p>Todos los formularios que estan en internet tienen metodos de programacion por defecto. Etos metodos nos sirven para poder hacer las acciones para poderse conectar con los servidores a travez de las arquitecturas ciente servidor. Es que vamos a tener por defectos que todos los formularios utilizan el metodo GET y el segundo metodo principal es POST, aunque existen otros metodos que se encargan del intercambio de informacion.
-             GET: este metodo envia por medio de la URL toda la informacion del formulario a traves del navegador. su funcion principal es obtener los datos del servicio.  pero es el metodo mas vulnerable de todos derivador a que se puede generar inyecciones de codigo.
-              POST: este metodo se encarga de registrar una nueva entrada al sistema tambien utiliza la URL como envio por defecto pero su facultad es poder ocultarla esto significa que los datos no son visibles para el usuario comun en el navegador</p>
-              <form name="formulario" method="post" id="formulario" onsubmit="return validar(this)">
-                <label for="nombre"></label>
-                <br>
-                <input type="text" name="nombre" id="nombre" placeholder="Por favor escriba aqui su nombre">
-                <br>
-                <label for="edad"></label>
-                <br>
-                <input type="number" name="edad" id="edad" placeholder="Por favor escriba aqui su edad">
-                <br>
-                <label for="gmail"></label>
-                <br>
-                <input type="email" name="email" id="email" placeholder="Por favor escriba aqui su correo electronico">
-                <br>
-                <input type="submit" name="enviar" value="Enviar registro">
-                <input type="reset" name="borrar" value="Borrar datos">
 
-              </form>
+    <div class="card">
+
+        <!-- ENCABEZADO -->
+        <div class="card-header">
+            <h1>Registro <span>General</span></h1>
+            <p>Complete todos los campos para enviar su información de forma segura.</p>
         </div>
+
+        <!-- DESCRIPCIÓN EDUCATIVA -->
+        <div class="description">
+            Los formularios web se comunican con el servidor mediante dos métodos principales:<br>
+            <strong>GET</strong> — envía los datos visibles en la URL (más vulnerable a inyecciones).<br>
+            <strong>POST</strong> — oculta los datos al usuario común y registra nuevas entradas al sistema.
+        </div>
+
+        <!-- FORMULARIO -->
+        <form name="formulario" method="post" id="formulario" onsubmit="return validar(this)" novalidate>
+
+            <!-- INPUT: Nombre -->
+            <div class="form-group">
+                <label for="nombre">Nombre completo <span class="required">*</span></label>
+                <input
+                    type="text"
+                    name="nombre"
+                    id="nombre"
+                    placeholder="Ej. María González"
+                    autocomplete="name"
+                >
+            </div>
+
+            <!-- INPUT: Edad -->
+            <div class="form-group">
+                <label for="edad">Edad <span class="required">*</span></label>
+                <input
+                    type="number"
+                    name="edad"
+                    id="edad"
+                    placeholder="Ej. 22"
+                    min="1"
+                    max="120"
+                    autocomplete="off"
+                >
+            </div>
+
+            <!-- INPUT: Correo electrónico -->
+            <div class="form-group">
+                <label for="email">Correo electrónico <span class="required">*</span></label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Ej. correo@dominio.com"
+                    autocomplete="email"
+                >
+            </div>
+
+            <!-- TEXTAREA: Comentario -->
+            <div class="form-group">
+                <label for="comentario">Comentario <span class="required">*</span></label>
+                <textarea
+                    name="comentario"
+                    id="comentario"
+                    placeholder="Escriba aquí su comentario (mínimo 10 caracteres)..."
+                ></textarea>
+            </div>
+
+            <!-- BOTONES -->
+            <div class="btn-row">
+                <button type="submit" class="btn-primary">Enviar registro</button>
+                <button type="reset"  class="btn-secondary">Borrar datos</button>
+            </div>
+
+        </form>
     </div>
+
 </body>
 </html>
