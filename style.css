@@ -1,0 +1,67 @@
+:root {
+    --guinda-ipn: #6A1B32;
+    --blanco: #ffffff;
+    --gris-claro: #f4f4f4;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--gris-claro);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+    background: var(--blanco);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-top: 8px solid var(--guinda-ipn);
+    text-align: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.logo { height: 70px; }
+h1 { color: var(--guinda-ipn); font-size: 1.4rem; margin: 0; }
+
+.student-info {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+}
+
+/* GRID DE BOTONES (ENLACES) */
+.grid-proyectos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+    gap: 15px;
+}
+
+.btn-proyecto {
+    display: block;
+    padding: 15px;
+    background-color: var(--blanco);
+    color: var(--guinda-ipn);
+    border: 2px solid var(--guinda-ipn);
+    text-decoration: none; /* Quita el subrayado del link */
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-proyecto:hover {
+    background-color: var(--guinda-ipn);
+    color: var(--blanco);
+}
+
+footer { margin-top: 25px; color: #999; font-size: 0.8rem; }
