@@ -1,27 +1,10 @@
-//este javascrip sera unicamente para agregar la logica atras de los ejercicios, es decir para que el html cuando se use pueda hacer lo que dice que va a hacer
+/este javascrip sera unicamente para agregar la logica atras de los ejercicios, es decir para que el html cuando se use pueda hacer lo que dice que va a hacer
 
 // =====================
 // EJERCICIO 1 - Inversión de Capital
 // =====================
-document.getElementById("btn-inversion").addEventListener("click", function() {
-    const capital = document.getElementById("capital").value.trim();
-
-    // Validaciones
-    if (capital === "") {
-        alert("Por favor ingrese un capital");
-        return;
-    }
-    if (isNaN(capital)) {
-        alert("Por favor ingrese solo números");
-        return;
-    }
-    if (parseFloat(capital) <= 0) {
-        alert("El capital debe ser mayor a 0");
-        return;
-    }
-
-    // Solo llega aquí si todo es válido
-    const cap      = parseFloat(capital);
+function calcularInversion() {
+    const cap      = parseFloat(document.getElementById("capital").value);
     const ganancia = cap * 0.02;
     const total    = cap + ganancia;
 
@@ -30,13 +13,11 @@ document.getElementById("btn-inversion").addEventListener("click", function() {
         <p>Ganancia (2%): $${ganancia.toFixed(2)}</p>
         <p>Total tras un mes: $${total.toFixed(2)}</p>
     `;
-});
+}
 // =====================
 // EJERCICIO 2 - Sueldo y Comisiones
 // =====================
-document.getElementById("form-ventas").addEventListener("submit", function(e) {
-    e.preventDefault();
-
+function calcularVentas() {
     const sueldo      = parseFloat(document.getElementById("sueldo-base").value);
     const venta1      = parseFloat(document.getElementById("venta1").value);
     const venta2      = parseFloat(document.getElementById("venta2").value);
@@ -51,13 +32,11 @@ document.getElementById("form-ventas").addEventListener("submit", function(e) {
         <p>Comisión (10%): $${comision.toFixed(2)}</p>
         <p>Sueldo total: $${sueldoFinal.toFixed(2)}</p>
     `;
-});
+}
 // =====================
 // EJERCICIO 3 - Descuento del 15%
 // =====================
-document.getElementById("form-tienda").addEventListener("submit", function(e) {
-    e.preventDefault();
-
+function calcularTienda() {
     const compra    = parseFloat(document.getElementById("compra-total").value);
     const descuento = compra * 0.15;
     const total     = compra - descuento;
@@ -67,7 +46,7 @@ document.getElementById("form-tienda").addEventListener("submit", function(e) {
         <p>Descuento (15%): $${descuento.toFixed(2)}</p>
         <p>Total a pagar: $${total.toFixed(2)}</p>
     `;
-});
+}
 // =====================
 // EJERCICIO 4 - Calificación Final
 // =====================
