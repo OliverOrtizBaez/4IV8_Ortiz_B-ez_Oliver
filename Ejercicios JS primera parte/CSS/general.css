@@ -1,3 +1,17 @@
+/* =====================
+   VARIABLES & RESET (FIGMA COLORS)
+===================== */
+:root {
+    --color-primario: #F5BE76;    /* Naranja/Dorado */
+    --color-secundario: #42535C;  /* Azul Oscuro (Header/Botones) */
+    --color-acento: #84A9BD;      /* Azul Claro */
+    --color-neutro: #7E898F;      /* Gris */
+    --color-arena: #B49F83;       /* Arena/Café */
+    --blanco: #ffffff;
+    --gris-fondo: #f0f2f5;
+    --texto-principal: #333;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,23 +20,26 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    background-color: var(--gris-fondo);
+    color: var(--texto-principal);
+    line-height: 1.6;
 }
 
 /* =====================
    HEADER
 ===================== */
 header {
-    background-color: #2c3e50;
-    color: white;
+    background-color: var(--color-secundario);
+    color: var(--color-primario); /* Títulos en dorado sobre fondo oscuro */
     text-align: center;
-    padding: 30px 20px;
+    padding: 40px 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
 
 header h1 {
     font-size: 2rem;
     letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 /* =====================
@@ -41,26 +58,23 @@ main {
    SECCIONES
 ===================== */
 section {
-    background-color: white;
-    border-radius: 10px;
+    background-color: var(--blanco);
+    border-radius: 12px;
     padding: 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-left: 6px solid var(--color-primario);
 }
 
 section h2 {
-    font-size: 1.3rem;
-    color: #2c3e50;
-    margin-bottom: 8px;
+    font-size: 1.4rem;
+    color: var(--color-secundario);
+    margin-bottom: 10px;
 }
 
 section p {
-    color: #666;
+    color: var(--color-neutro);
     margin-bottom: 20px;
     font-size: 0.95rem;
-}
-
-hr {
-    display: none;
 }
 
 /* =====================
@@ -69,77 +83,85 @@ hr {
 form {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
 }
 
 label {
     font-weight: 600;
     font-size: 0.9rem;
-    color: #444;
+    color: var(--color-secundario);
 }
 
 input[type="text"],
-input[type="date"] {
-    padding: 10px 14px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
+input[type="date"],
+input[type="number"] {
+    padding: 12px 14px;
+    border: 2px solid #eee;
+    border-radius: 8px;
     font-size: 1rem;
-    transition: border 0.2s;
+    transition: all 0.3s;
     outline: none;
 }
 
 input[type="text"]:focus,
-input[type="date"]:focus {
-    border-color: #2980b9;
+input[type="date"]:focus,
+input[type="number"]:focus {
+    border-color: var(--color-acento);
+    background-color: #fff;
 }
 
 /* =====================
    FIELDSET
 ===================== */
 fieldset {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 16px;
+    border: 1px solid var(--color-neutro);
+    border-radius: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
 }
 
 legend {
-    font-weight: 600;
-    color: #2c3e50;
-    padding: 0 8px;
-    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-arena);
+    padding: 0 10px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
 }
 
 /* =====================
    BOTONES
 ===================== */
 button {
-    padding: 12px;
-    background-color: #2980b9;
-    color: white;
+    padding: 14px;
+    background-color: var(--color-primario);
+    color: var(--color-secundario); /* Texto oscuro sobre botón claro para legibilidad */
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s;
-    margin-top: 6px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    text-transform: uppercase;
 }
 
 button:hover {
-    background-color: #1f6391;
+    background-color: var(--color-arena);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* =====================
    RESULTADOS
 ===================== */
 div[id^="resultado"] {
-    margin-top: 20px;
-    padding: 16px;
-    background-color: #eaf4fb;
-    border-left: 4px solid #2980b9;
-    border-radius: 6px;
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-left: 5px solid var(--color-acento);
+    border-radius: 8px;
     display: none;
 }
 
@@ -148,9 +170,9 @@ div[id^="resultado"]:not(:empty) {
 }
 
 div[id^="resultado"] p {
-    margin-bottom: 6px;
-    color: #2c3e50;
-    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: var(--color-secundario);
+    font-weight: 500;
 }
 
 /* =====================
@@ -158,9 +180,9 @@ div[id^="resultado"] p {
 ===================== */
 footer {
     text-align: center;
-    padding: 20px;
-    background-color: #2c3e50;
-    color: #aaa;
+    padding: 30px;
+    background-color: var(--color-secundario);
+    color: var(--color-neutro);
     font-size: 0.85rem;
-    margin-top: 40px;
+    margin-top: 50px;
 }

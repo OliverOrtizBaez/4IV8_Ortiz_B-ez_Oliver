@@ -1,72 +1,138 @@
 :root {
     --guinda-ipn: #6A1B32;
+    --guinda-hover: #4a1223;
     --blanco: #ffffff;
-    --gris-claro: #f4f4f4;
+    --gris-fondo: #f0f2f5;
+    --gris-suave: #f9f9f9;
+    --texto-suave: #666;
+    --sombra: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--gris-claro);
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--gris-fondo);
     margin: 0;
-    padding: 20px;
+    padding: 40px 20px;
+    color: #333;
+    display: flex;
+    justify-content: center;
 }
 
 .container {
-    max-width: 700px;
-    margin: auto;
+    max-width: 800px;
+    width: 100%;
     background: var(--blanco);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    border-top: 8px solid var(--guinda-ipn);
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+    border-top: 10px solid var(--guinda-ipn);
     text-align: center;
 }
 
+/* Header */
 .header-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
-    margin-bottom: 20px;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
-
-.logo img{
-    width: 80px;
+.logo img {
+    width: 90px;
     height: auto;
-    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
 }
-h1 { color: var(--guinda-ipn); font-size: 1.4rem; margin: 0; }
 
+.titles h1 {
+    color: var(--guinda-ipn);
+    font-size: 1.6rem;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.titles h2 {
+    font-size: 1.1rem;
+    color: var(--texto-suave);
+    margin: 5px 0 0;
+    font-weight: 400;
+}
+
+/* Información del Alumno */
 .student-info {
-    background: #f9f9f9;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 25px;
+    background: var(--gris-suave);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 35px;
+    border: 1px solid #eee;
 }
 
-/* GRID DE BOTONES (ENLACES) */
+.student-info h3 {
+    margin-top: 0;
+    color: var(--guinda-ipn);
+    font-size: 1.2rem;
+}
+
+.info-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Grid de Botones */
 .grid-proyectos {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
 }
 
 .btn-proyecto {
-    display: block;
-    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
     background-color: var(--blanco);
     color: var(--guinda-ipn);
     border: 2px solid var(--guinda-ipn);
-    text-decoration: none; /* Quita el subrayado del link */
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .btn-proyecto:hover {
     background-color: var(--guinda-ipn);
     color: var(--blanco);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(106, 27, 50, 0.2);
 }
 
-footer { margin-top: 25px; color: #999; font-size: 0.8rem; }
+.btn-proyecto:active {
+    transform: translateY(0);
+}
+
+/* Footer */
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 600px) {
+    .header-content {
+        flex-direction: column;
+    }
+    .info-grid {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .container {
+        padding: 20px;
+    }
+}
