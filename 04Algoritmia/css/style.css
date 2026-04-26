@@ -1,0 +1,96 @@
+/* Estilos Generales */
+body {
+    background-color: #42535C; /* Gris oscuro del fondo */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    background-color: #F5BE76; /* Tono mostaza para el contenedor principal */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    max-width: 900px;
+    width: 100%;
+    color: #42535C; /* Texto oscuro para contraste */
+}
+
+/* Títulos y Textos */
+.problema-titulo {
+    border-bottom: 3px solid #7E898F; /* Gris medio */
+    padding-bottom: 10px;
+    margin-top: 2rem;
+    color: #42535C;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+h3 {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Inputs y Controles */
+.problema-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #7E898F;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    box-sizing: border-box; /* Evita que el padding desborde */
+}
+
+.problema-button {
+    background-color: #84ACC2; /* Azul claro para acciones */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    display: block;
+    margin: 1rem auto;
+}
+
+.problema-button:hover {
+    background-color: #7E898F; /* Cambio al gris al pasar el mouse */
+}
+
+/* Tablas del Problema 2 */
+.problema-table {
+    background-color: #B5A084; /* Tono arena para las tablas */
+    border-collapse: collapse;
+    margin: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.problema-table th, .problema-table td {
+    padding: 10px;
+    border: 1px solid #7E898F;
+    text-align: center;
+}
+
+.problema-table th {
+    background-color: #7E898F;
+    color: white;
+}
+
+/* Salida de Resultados */
+.problema-output {
+    background-color: #42535C; /* Fondo oscuro para el código/resultado */
+    color: #F5BE76; /* Texto mostaza para resaltar el resultado */
+    padding: 15px;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-x: auto;
+    margin-top: 1rem;
+    border-left: 5px solid #84ACC2;
+}
