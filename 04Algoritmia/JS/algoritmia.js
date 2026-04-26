@@ -95,45 +95,50 @@ function problema2(){
 }
 
 function problema3() {
-    var LetOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ,"; 
+    var LetOK = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ,";
     var input = document.querySelector('#p3-input').value;
+    
     var esValido = true;
     if (input.trim() === "") {
         esValido = false;
     } else {
         for (var i = 0; i < input.length; i++) {
-            if (LetOK.indexOf(input.charAt(i).toUpperCase()) === -1) {
+            var caracterActual = input.charAt(i);
+            if (LetOK.indexOf(caracterActual) === -1) {
                 esValido = false;
                 break;
             }
         }
     }
+
     if (esValido) {
         var palabras = input.split(',');
         var palabraGanadora = "";
         var maxUnicos = 0;
 
         for (var i = 0; i < palabras.length; i++) {
-            var palabraActual = palabras[i].trim().toUpperCase();
+            var palabraActual = palabras[i].trim();
             var letrasVistas = "";
             var conteoUnicos = 0;
+
             for (var j = 0; j < palabraActual.length; j++) {
                 var letra = palabraActual.charAt(j);
-
                 if (letrasVistas.indexOf(letra) === -1) {
-                    letrasVistas += letra; 
+                    letrasVistas += letra;
                     conteoUnicos++;
                 }
             }
+
             if (conteoUnicos > maxUnicos) {
                 maxUnicos = conteoUnicos;
                 palabraGanadora = palabraActual;
             }
         }
+
         document.querySelector('#p3-output').textContent = 
             "La palabra con más caracteres únicos es: " + palabraGanadora + " (" + maxUnicos + " únicos)";
             
     } else {
-        document.querySelector('#p3-output').textContent = "Formato no válido: Solo letras A-Z sin espacios, separadas por comas.";
+        document.querySelector('#p3-output').textContent = "Formato no válido: Solo Mayúsculas (A-Z) separadas por comas.";
     }
 }
