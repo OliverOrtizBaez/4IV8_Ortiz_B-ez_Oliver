@@ -2,7 +2,7 @@
 // simplifique usando el framework express, y en estas primeras lineas de codigo lo importe
 const express = require('express');
 const mysql = require('mysql2');
-// Aqui volvi a usar esta misma instancia, asimismo puse el puerto en el que iria el servidor con respecto al sql
+// Aqui volvi a usar esta misma instancia, asimismo puse el puerto en el que iria el servidor con respecto a la base de datos
 const app = express();
 const PORT = process.env.PORT || 3000;
 //aqui ya puse los datos propios de la base de datps
@@ -25,4 +25,3 @@ app.use(express.json());
 app.listen(PORT, () => {
     console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
- 
