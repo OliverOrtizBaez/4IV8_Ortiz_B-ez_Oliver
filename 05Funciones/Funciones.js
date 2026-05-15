@@ -66,7 +66,7 @@ nesecitamos una funcion para encontrar la raza chihuahua y si no existe agregarl
 //funcion map esta funcion itera sobre los elementos del arreglo y regresa y arreglo diferente con el podemons hacer lo que queramos sin nesecidad de modificar el arreglo original
 
 const razaDeperrosEnMayusculas = razaDePerros.map((raza, indice, razaDePerros) => console.log(razaDePerros.toUpperCase()));
-
+*/
 
 if(razaDePerros.find(raza => raza === "Chihuahua")){
     console.log ("la raza si se encontro y es chihuahua");
@@ -76,6 +76,4 @@ if(razaDePerros.find(raza => raza === "Chihuahua")){
     console.log("se agrego chihuahua al arreglo");
     console.log(razaDePerros);
 }
-    */
-
 
